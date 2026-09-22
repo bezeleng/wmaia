@@ -1,0 +1,35 @@
+import { type SchemaTypeDefinition } from 'sanity'
+import { configuracaoSite } from './configuracaoSite'
+import { paginaInicial } from './paginaInicial'
+import { paginaSobre } from './paginaSobre'
+import { politicaPrivacidade } from './politicaPrivacidade'
+import { seo } from './objects/seo'
+import { servico } from './servico'
+import { categoria } from './categoria'
+import { projeto } from './projeto'
+import { obra } from './obra'
+import { membroEquipe } from './membroEquipe'
+import { video } from './video'
+import { categoriaVideo } from './categoriaVideo'
+import { galeria } from './galeria'
+import { depoimento } from './depoimento'
+
+
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [
+    configuracaoSite,
+    paginaInicial,
+    paginaSobre,
+    politicaPrivacidade,
+    seo,
+    servico,
+    categoria,
+    projeto,
+    obra,
+    membroEquipe,
+    categoriaVideo,
+    video,
+    galeria,
+    depoimento,
+  ],
+}
