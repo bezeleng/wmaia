@@ -34,12 +34,19 @@ export async function FerramentasDestaque() {
                 const iconeUrl = item.icone
                   ? urlFor(item.icone).width(80).height(80).url()
                   : null;
+                const imagemUrl = item.imagemCard
+                  ? urlFor(item.imagemCard).width(500).height(320).fit("crop").url()
+                  : null;
                 return (
                   <article
                     key={item._id}
                     className="rounded-2xl border border-border-soft bg-white p-5 text-center shadow-sm"
                   >
-                    {iconeUrl && (
+                    {imagemUrl ? (
+                      <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-xl">
+                        <Image src={imagemUrl} alt={item.titulo ?? ""} fill className="object-cover" />
+                      </div>
+                    ) : iconeUrl ? (
                       <Image
                         src={iconeUrl}
                         alt=""
@@ -47,7 +54,7 @@ export async function FerramentasDestaque() {
                         height={42}
                         className="mx-auto"
                       />
-                    )}
+                    ) : null}
                     <h3 className="mt-4 font-bold text-brand-blue-dark">
                       {item.titulo}
                     </h3>

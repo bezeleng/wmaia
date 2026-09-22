@@ -59,6 +59,11 @@ export type ConfiguracaoSiteQueryResult = {
   linkAvaliacoesGoogle?: string | null;
   horarioSegQui?: string | null;
   horarioSexta?: string | null;
+  subtituloRodape?: string | null;
+  tituloAreaCondominial?: string | null;
+  descricaoAreaCondominial?: string | null;
+  tituloAreaContabilidade?: string | null;
+  descricaoAreaContabilidade?: string | null;
   sistemaCondominialUrl?: string | null;
   sistemaContabilidadeUrl?: string | null;
   instagramUrl?: string | null;
@@ -110,6 +115,29 @@ export type PaginaSobreQueryResult = {
   }> | null;
   mostrarEquipe?: boolean | null;
   seo?: Seo | null;
+} | null;
+
+export type PaginaServicosQueryResult = {
+  _id: string;
+  eyebrow?: string | null;
+  titulo?: string | null;
+  descricao?: string | null;
+} | null;
+
+export type PaginaFerramentasQueryResult = {
+  _id: string;
+  eyebrow?: string | null;
+  titulo?: string | null;
+  descricao?: string | null;
+} | null;
+
+export type PaginaContatoQueryResult = {
+  _id: string;
+  eyebrow?: string | null;
+  titulo?: string | null;
+  descricao?: string | null;
+  tituloMapa?: string | null;
+  textoBotaoMapa?: string | null;
 } | null;
 
 export type PaginaCondominiosQueryResult = {
@@ -167,6 +195,7 @@ export type FerramentasQueryResult = Array<{
   titulo?: string | null;
   descricao?: string | null;
   icone?: SanityImage | null;
+  imagemCard?: SanityImage | null;
   links?: Array<{
     titulo?: string | null;
     url?: string | null;
@@ -209,10 +238,13 @@ declare module "@sanity/client" {
     '*[_type == "paginaInicial"][0]': PaginaInicialQueryResult;
     '*[_type == "paginaSobre"][0]': PaginaSobreQueryResult;
     '*[_type == "paginaCondominios"][0]': PaginaCondominiosQueryResult;
+    '*[_type == "paginaServicos"][0]': PaginaServicosQueryResult;
+    '*[_type == "paginaFerramentas"][0]': PaginaFerramentasQueryResult;
+    '*[_type == "paginaContato"][0]': PaginaContatoQueryResult;
     '*[_type == "servico"] | order(ordem asc)': ServicosQueryResult;
     '*[_type == "servico" && slug.current == $slug][0]': ServicoBySlugQueryResult;
     '*[_type == "servico"]{ "slug": slug.current }': ServicoSlugsQueryResult;
-    '*[_type == "ferramenta"] | order(ordem asc){_id,titulo,descricao,icone,links}': FerramentasQueryResult;
+    '*[_type == "ferramenta"] | order(ordem asc){_id,titulo,descricao,icone,imagemCard,links}': FerramentasQueryResult;
     '*[_type == "membroEquipe"] | order(ordem asc)': MembrosEquipeQueryResult;
     '*[_type == "depoimento"] | order(_createdAt desc){_id,nomeCliente,cargoEmpresa,foto,texto,nota,tipoServico->{nome}}': DepoimentosQueryResult;
     '*[_type == "depoimento" && destaque == true] | order(_createdAt desc)[0...3]{_id,nomeCliente,cargoEmpresa,foto,texto,nota,tipoServico->{nome}}': DepoimentosDestaqueQueryResult;

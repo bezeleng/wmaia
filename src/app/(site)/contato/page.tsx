@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
-import { configuracaoSiteQuery } from "@/sanity/lib/queries";
+import { configuracaoSiteQuery, paginaContatoQuery } from "@/sanity/lib/queries";
 import { configFallback } from "@/lib/wmaia-content";
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
@@ -24,7 +24,10 @@ function formatarWhatsapp(valor: string) {
 }
 
 export default async function ContatoPage() {
-  const { data } = await sanityFetch({ query: configuracaoSiteQuery });
+  const [{ data }, { data: pagina }] = await Promise.all([
+    sanityFetch({ query: configuracaoSiteQuery }),
+    sanityFetch({ query: paginaContatoQuery }),
+  ]);
   const config = { ...configFallback, ...(data ?? {}) };
 
   const enderecoCompleto = [config.logradouro, config.cidade, config.estado]
@@ -40,9 +43,12 @@ export default async function ContatoPage() {
         <Container className="grid gap-12 lg:grid-cols-2">
           <div>
             <SectionTitle
-              eyebrow="Fale conosco"
-              title="Entre em Contato"
-              description="Utilize nossos canais de atendimento ou envie uma mensagem."
+              eyebrow={pagina?.eyebrow ?? "Fale conosco"}
+              title={pagina?.titulo ?? "Entre em Contato"}
+              description={
+                pagina?.descricao ??
+                "Utilize nossos canais de atendimento ou envie uma mensagem."
+              }
             />
             <div className="mt-8 flex flex-col gap-2 text-brand-blue-dark">
               <p>Telefone: {config.telefone}</p>
@@ -60,7 +66,7 @@ export default async function ContatoPage() {
 
       <section className="bg-surface py-20">
         <Container className="flex flex-col gap-8">
-          <SectionTitle title="Onde estamos" />
+          <SectionTitle title={pagina?.tituloMapa ?? "Onde estamos"} />
           <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
             <MapaLocalizacao
               logradouro={config.logradouro}
@@ -79,7 +85,7 @@ export default async function ContatoPage() {
                 variant="secondary"
                 className="self-start"
               >
-                Como chegar
+                {pagina?.textoBotaoMapa ?? "Como chegar"}
               </Button>
             </div>
           </div>

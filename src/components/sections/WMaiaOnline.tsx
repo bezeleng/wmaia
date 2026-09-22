@@ -1,23 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/live";
-import { paginaInicialQuery } from "@/sanity/lib/queries";
+import { paginaInicialQuery, configuracaoSiteQuery } from "@/sanity/lib/queries";
+import { configFallback } from "@/lib/wmaia-content";
 import { Container } from "@/components/ui/Container";
-
-const areas = [
-  {
-    titulo: "Área do cliente — Condominial",
-    descricao:
-      "Acesse o portal de administração condominial, documentos e informações do condomínio.",
-    href: "https://maiacondominiosapp.com21.com.br/frontend/public/#/login",
-    tipo: "condominio",
-  },
-  {
-    titulo: "Área do cliente — Contabilidade",
-    descricao:
-      "Acesse o portal contábil da WMaia para documentos, informações e atendimento.",
-    href: "https://vip.acessorias.com/wmaia",
-    tipo: "contabilidade",
-  },
-] as const;
 
 function AreaIcon({ tipo }: { tipo: "condominio" | "contabilidade" }) {
   if (tipo === "condominio") {
@@ -37,7 +21,30 @@ function AreaIcon({ tipo }: { tipo: "condominio" | "contabilidade" }) {
 }
 
 export async function WMaiaOnline() {
-  const { data: pagina } = await sanityFetch({ query: paginaInicialQuery });
+  const [{ data: pagina }, { data }] = await Promise.all([
+    sanityFetch({ query: paginaInicialQuery }),
+    sanityFetch({ query: configuracaoSiteQuery }),
+  ]);
+  const config = { ...configFallback, ...(data ?? {}) };
+
+  const areas = [
+    {
+      titulo: data?.tituloAreaCondominial ?? "Área do cliente — Condominial",
+      descricao:
+        data?.descricaoAreaCondominial ??
+        "Acesse o portal de administração condominial, documentos e informações do condomínio.",
+      href: data?.sistemaCondominialUrl ?? config.sistemaCondominialUrl,
+      tipo: "condominio" as const,
+    },
+    {
+      titulo: data?.tituloAreaContabilidade ?? "Área do cliente — Contabilidade",
+      descricao:
+        data?.descricaoAreaContabilidade ??
+        "Acesse o portal contábil da WMaia para documentos, informações e atendimento.",
+      href: data?.sistemaContabilidadeUrl ?? config.sistemaContabilidadeUrl,
+      tipo: "contabilidade" as const,
+    },
+  ];
 
   const titulo = pagina?.tituloOnline ?? "Áreas do cliente";
   const texto =

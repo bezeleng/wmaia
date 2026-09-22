@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
-import { servicosQuery } from "@/sanity/lib/queries";
+import { servicosQuery, paginaServicosQuery } from "@/sanity/lib/queries";
 import { servicosFallback } from "@/lib/wmaia-content";
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
@@ -16,16 +16,22 @@ export const metadata: Metadata = {
 };
 
 export default async function ServicosPage() {
-  const { data: servicos } = await sanityFetch({ query: servicosQuery });
+  const [{ data: servicos }, { data: pagina }] = await Promise.all([
+    sanityFetch({ query: servicosQuery }),
+    sanityFetch({ query: paginaServicosQuery }),
+  ]);
   const temServicos = servicos && servicos.length > 0;
 
   return (
     <section className="py-20 sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionTitle
-          eyebrow="O que fazemos"
-          title="Soluções para empresas, condomínios e pessoas"
-          description="A WMaia reúne serviços contábeis e administrativos para apoiar a rotina, as obrigações e as decisões dos clientes."
+          eyebrow={pagina?.eyebrow ?? "O que fazemos"}
+          title={pagina?.titulo ?? "Soluções para empresas, condomínios e pessoas"}
+          description={
+            pagina?.descricao ??
+            "A WMaia reúne serviços contábeis e administrativos para apoiar a rotina, as obrigações e as decisões dos clientes."
+          }
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

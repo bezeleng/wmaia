@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { sanityFetch } from "@/sanity/lib/live";
-import { ferramentasQuery } from "@/sanity/lib/queries";
+import { ferramentasQuery, paginaFerramentasQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { ferramentasFallback } from "@/lib/wmaia-content";
 import { Container } from "@/components/ui/Container";
@@ -17,16 +17,22 @@ export const metadata: Metadata = {
 };
 
 export default async function FerramentasPage() {
-  const { data: ferramentas } = await sanityFetch({ query: ferramentasQuery });
+  const [{ data: ferramentas }, { data: pagina }] = await Promise.all([
+    sanityFetch({ query: ferramentasQuery }),
+    sanityFetch({ query: paginaFerramentasQuery }),
+  ]);
   const temFerramentas = ferramentas && ferramentas.length > 0;
 
   return (
     <section className="bg-surface py-20 sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionTitle
-          eyebrow="Recursos"
-          title="Ferramentas e links úteis"
-          description="Reunimos atalhos para consultas, conteúdos e serviços que podem ajudar na rotina da sua empresa."
+          eyebrow={pagina?.eyebrow ?? "Recursos"}
+          title={pagina?.titulo ?? "Ferramentas e links úteis"}
+          description={
+            pagina?.descricao ??
+            "Reunimos atalhos para consultas, conteúdos e serviços que podem ajudar na rotina da sua empresa."
+          }
         />
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -35,15 +41,22 @@ export default async function FerramentasPage() {
                 const iconeUrl = item.icone
                   ? urlFor(item.icone).width(96).height(96).url()
                   : null;
+                const imagemUrl = item.imagemCard
+                  ? urlFor(item.imagemCard).width(700).height(420).fit("crop").url()
+                  : null;
 
                 return (
                   <article
                     key={item._id}
                     className="rounded-2xl border border-border-soft bg-white p-7 shadow-sm"
                   >
-                    {iconeUrl && (
+                    {imagemUrl ? (
+                      <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-xl">
+                        <Image src={imagemUrl} alt={item.titulo ?? ""} fill className="object-cover" />
+                      </div>
+                    ) : iconeUrl ? (
                       <Image src={iconeUrl} alt="" width={48} height={48} />
-                    )}
+                    ) : null}
                     <h2 className="mt-4 text-xl font-bold text-brand-blue-dark">
                       {item.titulo}
                     </h2>

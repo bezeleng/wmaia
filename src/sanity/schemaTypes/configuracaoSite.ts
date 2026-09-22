@@ -117,12 +117,46 @@ export const configuracaoSite = defineType({
       initialValue: "8:00 às 12:00 | 13:30 às 17:00",
     }),
     defineField({
+      name: "subtituloRodape",
+      title: "Subtítulo do Rodapé",
+      type: "string",
+      initialValue: "Contabilidade • Assessoria • Consultoria",
+    }),
+    defineField({
+      name: "tituloAreaCondominial",
+      title: "Título — Área do Cliente Condominial",
+      type: "string",
+      initialValue: "Área do cliente — Condominial",
+    }),
+    defineField({
+      name: "descricaoAreaCondominial",
+      title: "Descrição — Área do Cliente Condominial",
+      type: "text",
+      rows: 2,
+      initialValue:
+        "Acesse o portal de administração condominial, documentos e informações do condomínio.",
+    }),
+    defineField({
       name: "sistemaCondominialUrl",
       title: "Área do Cliente — Condominial",
       type: "url",
       initialValue:
         "https://maiacondominiosapp.com21.com.br/frontend/public/#/login",
       validation: (Rule) => Rule.uri({ scheme: ["http", "https"] }),
+    }),
+    defineField({
+      name: "tituloAreaContabilidade",
+      title: "Título — Área do Cliente Contabilidade",
+      type: "string",
+      initialValue: "Área do cliente — Contabilidade",
+    }),
+    defineField({
+      name: "descricaoAreaContabilidade",
+      title: "Descrição — Área do Cliente Contabilidade",
+      type: "text",
+      rows: 2,
+      initialValue:
+        "Acesse o portal contábil da WMaia para documentos, informações e atendimento.",
     }),
     defineField({
       name: "sistemaContabilidadeUrl",

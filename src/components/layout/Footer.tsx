@@ -41,7 +41,7 @@ export async function Footer() {
           <div>
             <span className="text-xl font-bold">WMaia</span>
             <p className="mt-1 text-sm text-white/70">
-              Contabilidade • Assessoria • Consultoria
+              {data?.subtituloRodape ?? "Contabilidade • Assessoria • Consultoria"}
             </p>
           </div>
           <div className="flex flex-col gap-1 text-sm text-white/60">
