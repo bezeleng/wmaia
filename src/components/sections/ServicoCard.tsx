@@ -16,20 +16,28 @@ export function ServicoCard({
   descricaoCurta,
   icone,
 }: ServicoCardProps) {
-  const iconeUrl = icone ? urlFor(icone).width(64).height(64).url() : null;
+  const iconeUrl = icone ? urlFor(icone).width(96).height(96).url() : null;
 
   return (
     <Link
       href={`/servicos/${slug}`}
-      className="group flex flex-col gap-4 rounded-lg border border-navy/10 p-6 transition-colors hover:border-gold"
+      className="group flex min-h-64 flex-col gap-4 rounded-2xl border border-border-soft bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand-orange/40 hover:shadow-lg"
     >
-      {iconeUrl && (
-        <Image src={iconeUrl} alt="" width={48} height={48} />
-      )}
-      <h3 className="font-display text-xl text-navy">{titulo}</h3>
-      <p className="text-sm text-foreground/70">{descricaoCurta}</p>
-      <span className="text-sm font-medium text-gold-text group-hover:underline">
-        Saiba mais →
+      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-orange-soft">
+        {iconeUrl ? (
+          <Image src={iconeUrl} alt="" width={42} height={42} />
+        ) : (
+          <span className="h-3 w-3 rounded-full bg-brand-orange" />
+        )}
+      </div>
+      <h3 className="font-display text-xl font-bold text-brand-blue-dark">
+        {titulo}
+      </h3>
+      <p className="flex-1 text-sm leading-6 text-foreground/70">
+        {descricaoCurta}
+      </p>
+      <span className="text-sm font-semibold text-brand-orange-dark">
+        Saiba mais <span aria-hidden="true">→</span>
       </span>
     </Link>
   );

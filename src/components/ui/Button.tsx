@@ -5,12 +5,14 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 type Variant = "primary" | "secondary";
 
 const variantClasses: Record<Variant, string> = {
-  primary: "bg-gold text-navy hover:bg-gold/90",
-  secondary: "border border-navy text-navy hover:bg-navy hover:text-white",
+  primary:
+    "bg-brand-orange text-white shadow-sm hover:bg-brand-orange-dark hover:shadow-md",
+  secondary:
+    "border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white",
 };
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-full px-6 py-3 font-sans text-sm font-medium transition-colors";
+  "inline-flex min-h-11 items-center justify-center rounded-lg px-6 py-3 font-sans text-sm font-semibold transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange";
 
 interface BaseProps {
   children: ReactNode;

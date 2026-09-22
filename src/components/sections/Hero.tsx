@@ -18,7 +18,7 @@ export async function Hero() {
     : null;
 
   return (
-    <section className="relative flex min-h-[600px] items-center overflow-hidden bg-navy">
+    <section className="relative flex min-h-[640px] items-center overflow-hidden bg-brand-blue-dark">
       {imagemUrl && (
         <Image
           src={imagemUrl}
@@ -28,8 +28,9 @@ export async function Hero() {
           className="object-cover"
         />
       )}
-      <div className="absolute inset-0 bg-navy/60" />
-      <Container className="relative z-10 py-24">
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-dark/95 via-brand-blue-dark/78 to-brand-blue-dark/25" />
+      <div className="absolute inset-x-0 bottom-0 h-1 bg-brand-orange" />
+      <Container className="relative z-10 py-28 sm:py-32">
         <HeroContent
           titulo={paginaInicial.tituloHero ?? ""}
           subtitulo={paginaInicial.subtituloHero}

@@ -1,7 +1,4 @@
 // src/components/sections/HeroContent.tsx
-"use client";
-
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 
 interface HeroContentProps {
@@ -18,21 +15,23 @@ export function HeroContent({
   linkCta,
 }: HeroContentProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="flex flex-col items-start gap-6 text-white"
-    >
-      <h1 className="font-display max-w-2xl text-4xl sm:text-5xl">{titulo}</h1>
+    <div className="hero-content-enter flex max-w-3xl flex-col items-start gap-6 text-white">
+      <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/90 backdrop-blur-sm">
+        WMaia Contabilidade
+      </span>
+      <h1 className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+        {titulo}
+      </h1>
       {subtitulo && (
-        <p className="max-w-xl text-lg text-white/85">{subtitulo}</p>
+        <p className="max-w-2xl text-base leading-7 text-white/85 sm:text-lg">
+          {subtitulo}
+        </p>
       )}
       {textoCta && linkCta && (
         <Button href={linkCta} variant="primary">
           {textoCta}
         </Button>
       )}
-    </motion.div>
+    </div>
   );
 }
