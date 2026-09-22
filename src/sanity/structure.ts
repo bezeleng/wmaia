@@ -1,5 +1,14 @@
 import type { StructureResolver } from "sanity/structure";
 
+const servicosPadrao = [
+  ["servico-contabilidade", "Contabilidade, Fiscal, Societário e Trabalhista"],
+  ["servico-condominial", "Administração Condominial"],
+  ["servico-planejamento-tributario", "Planejamento Tributário"],
+  ["servico-imposto-renda", "Imposto de Renda"],
+  ["servico-consultoria", "Consultoria Administrativa e Contábil"],
+  ["servico-abertura-empresas", "Abertura e Regularização de Empresas"],
+] as const;
+
 export const structure: StructureResolver = (S) =>
   S.list()
     .title("WMaia")
@@ -33,7 +42,27 @@ export const structure: StructureResolver = (S) =>
             .documentId("paginaCondominios")
         ),
       S.divider(),
-      S.documentTypeListItem("servico").title("Serviços"),
+      S.listItem()
+        .title("Serviços")
+        .child(
+          S.list()
+            .title("Serviços")
+            .items([
+              ...servicosPadrao.map(([id, title]) =>
+                S.listItem()
+                  .title(title)
+                  .id(id)
+                  .child(
+                    S.document()
+                      .schemaType("servico")
+                      .documentId(id)
+                      .title(title)
+                  )
+              ),
+              S.divider(),
+              S.documentTypeListItem("servico").title("Todos os Serviços"),
+            ])
+        ),
       S.documentTypeListItem("ferramenta").title("Ferramentas e Links Úteis"),
       S.documentTypeListItem("depoimento").title("Depoimentos"),
       S.documentTypeListItem("membroEquipe").title("Equipe"),
