@@ -1,3 +1,22 @@
+export const configFallback = {
+  nomeEmpresa: "WMaia Contabilidade",
+  telefone: "(12) 3951-8007",
+  telefoneSecundario: "(12) 3959-1263",
+  whatsapp: "5512982251788",
+  mensagemWhatsapp:
+    "Olá! Vim pelo site da WMaia e gostaria de falar com a equipe.",
+  email: "contato@wmaia.adm.br",
+  endereco: "Rua Luiz Simon, 48, Centro, Jacareí - SP",
+  logradouro: "Rua Luiz Simon, 48",
+  cidade: "Jacareí",
+  estado: "SP",
+  instagramUrl: "https://www.instagram.com/wmaiaadm/",
+  horarioSegQui: "8:00 às 12:00 | 13:30 às 17:30",
+  horarioSexta: "8:00 às 12:00 | 13:30 às 17:00",
+  sistemaUrl: "http://www.wmaia.adm.br/loginAdmin.htm",
+  regiaoAtendimento: ["Jacareí", "Vale do Paraíba"],
+} as const;
+
 export const servicosFallback = [
   {
     titulo: "Contabilidade, Fiscal, Societário e Trabalhista",

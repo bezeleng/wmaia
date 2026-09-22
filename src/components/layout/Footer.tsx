@@ -1,7 +1,7 @@
-// src/components/layout/Footer.tsx
 import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
 import { configuracaoSiteQuery } from "@/sanity/lib/queries";
+import { configFallback } from "@/lib/wmaia-content";
 import { Container } from "@/components/ui/Container";
 import { navLinks } from "@/lib/navigation";
 import {
@@ -18,19 +18,20 @@ function formatarWhatsapp(valor?: string | null) {
 }
 
 export async function Footer() {
-  const { data: config } = await sanityFetch({ query: configuracaoSiteQuery });
+  const { data } = await sanityFetch({ query: configuracaoSiteQuery });
+  const config = { ...configFallback, ...(data ?? {}) };
 
   const enderecoLinha =
-    config?.logradouro && config?.cidade && config?.estado
+    config.logradouro && config.cidade && config.estado
       ? `${config.logradouro} — ${config.cidade}/${config.estado}`
-      : config?.endereco;
+      : config.endereco;
 
-  const whatsappExibicao = formatarWhatsapp(config?.whatsapp);
+  const whatsappExibicao = formatarWhatsapp(config.whatsapp);
 
   const redesSociais = [
-    { url: config?.instagramUrl, label: "Instagram", Icon: InstagramIcon },
-    { url: config?.facebookUrl, label: "Facebook", Icon: FacebookIcon },
-    { url: config?.youtubeUrl, label: "YouTube", Icon: YouTubeIcon },
+    { url: config.instagramUrl, label: "Instagram", Icon: InstagramIcon },
+    { url: "facebookUrl" in config ? config.facebookUrl : null, label: "Facebook", Icon: FacebookIcon },
+    { url: "youtubeUrl" in config ? config.youtubeUrl : null, label: "YouTube", Icon: YouTubeIcon },
   ].filter((rede) => rede.url);
 
   return (
@@ -38,16 +39,16 @@ export async function Footer() {
       <Container className="grid gap-10 py-12 sm:grid-cols-3">
         <div className="flex flex-col gap-3">
           <div>
-            <span className="font-display text-xl font-bold">WMaia</span>
+            <span className="text-xl font-bold">WMaia</span>
             <p className="mt-1 text-sm text-white/70">
               Contabilidade • Assessoria • Consultoria
             </p>
           </div>
           <div className="flex flex-col gap-1 text-sm text-white/60">
             {enderecoLinha && <p>{enderecoLinha}</p>}
-            {config?.email && <p>{config.email}</p>}
-            {config?.telefone && <p>{config.telefone}</p>}
-            {config?.telefoneSecundario && <p>{config.telefoneSecundario}</p>}
+            {config.email && <p>{config.email}</p>}
+            {config.telefone && <p>{config.telefone}</p>}
+            {config.telefoneSecundario && <p>{config.telefoneSecundario}</p>}
             {whatsappExibicao && <p>WhatsApp: {whatsappExibicao}</p>}
           </div>
           {redesSociais.length > 0 && (
@@ -70,8 +71,8 @@ export async function Footer() {
 
         <div className="flex flex-col gap-2 text-sm text-white/70">
           <strong className="text-white">Horário de atendimento</strong>
-          {config?.horarioSegQui && <p>{config.horarioSegQui}</p>}
-          {config?.horarioSexta && <p>{config.horarioSexta}</p>}
+          <p>Segunda à Quinta: {config.horarioSegQui}</p>
+          <p>Sexta: {config.horarioSexta}</p>
         </div>
 
         <nav className="flex flex-col gap-2 text-sm">

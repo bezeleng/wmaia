@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getOrganizationSchema } from "@/lib/schema-org";
+import { configFallback } from "@/lib/wmaia-content";
 import { GoogleTagManager } from "@/components/analytics/GoogleTagManager";
 import { GoogleTagManagerNoScript } from "@/components/analytics/GoogleTagManagerNoScript";
 import { sanityFetch } from "@/sanity/lib/live";
@@ -13,7 +14,8 @@ export default async function SiteLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { data: config } = await sanityFetch({ query: configuracaoSiteQuery });
+  const { data } = await sanityFetch({ query: configuracaoSiteQuery });
+  const config = { ...configFallback, ...(data ?? {}) };
   const organizationSchema = getOrganizationSchema(config);
 
   return (
@@ -25,8 +27,8 @@ export default async function SiteLayout({
       <main className="flex-1">{children}</main>
       <Footer />
       <WhatsAppButton
-        whatsapp={config?.whatsapp}
-        mensagem={config?.mensagemWhatsapp}
+        whatsapp={config.whatsapp}
+        mensagem={config.mensagemWhatsapp}
       />
     </>
   );
