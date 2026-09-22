@@ -39,6 +39,27 @@ export const servico = defineType({
       name: "icone",
       title: "Ícone",
       type: "image",
+      description: "Ícone opcional. Se houver imagem do card, ela terá prioridade.",
+    }),
+    defineField({
+      name: "imagemCard",
+      title: "Imagem do Card",
+      type: "image",
+      options: { hotspot: true },
+      description: "Imagem exibida no card do serviço na página inicial e na página de Serviços.",
+    }),
+    defineField({
+      name: "linkPersonalizado",
+      title: "Link Personalizado",
+      type: "string",
+      description:
+        "Opcional. Pode ser uma página interna, como /contato, ou um link completo, como https://exemplo.com. Se ficar vazio, o card abre a página do próprio serviço.",
+    }),
+    defineField({
+      name: "abrirNovaAba",
+      title: "Abrir link em nova aba?",
+      type: "boolean",
+      initialValue: false,
     }),
     defineField({
       name: "descricaoCurta",

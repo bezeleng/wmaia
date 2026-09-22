@@ -134,6 +134,9 @@ export type ServicosQueryResult = Array<{
   slug?: Slug | null;
   area?: string | null;
   icone?: SanityImage | null;
+  imagemCard?: SanityImage | null;
+  linkPersonalizado?: string | null;
+  abrirNovaAba?: boolean | null;
   descricaoCurta?: string | null;
   descricaoLonga?: unknown[] | null;
   ordem?: number | null;
@@ -146,6 +149,9 @@ export type ServicoBySlugQueryResult = {
   slug?: Slug | null;
   area?: string | null;
   icone?: SanityImage | null;
+  imagemCard?: SanityImage | null;
+  linkPersonalizado?: string | null;
+  abrirNovaAba?: boolean | null;
   descricaoCurta?: string | null;
   descricaoLonga?: unknown[] | null;
   ordem?: number | null;

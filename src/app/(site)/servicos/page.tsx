@@ -37,6 +37,9 @@ export default async function ServicosPage() {
                   slug={servico.slug?.current ?? ""}
                   descricaoCurta={servico.descricaoCurta ?? ""}
                   icone={servico.icone}
+                  imagemCard={servico.imagemCard}
+                  href={servico.linkPersonalizado ?? undefined}
+                  abrirNovaAba={servico.abrirNovaAba}
                 />
               ))
             : servicosFallback.map((servico) => (
