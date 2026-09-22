@@ -1,4 +1,3 @@
-// src/components/layout/MobileNav.tsx
 "use client";
 
 import { useState } from "react";
@@ -9,7 +8,7 @@ export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="sm:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
@@ -32,7 +31,7 @@ export function MobileNav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="my-1 rounded-lg bg-brand-orange-soft px-3 py-3 font-sans font-semibold text-brand-orange-dark"
+                className="my-1 rounded-lg bg-brand-orange-soft px-3 py-3 font-semibold text-brand-orange-dark"
               >
                 {link.label}
               </a>
@@ -41,7 +40,7 @@ export function MobileNav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="py-3 font-sans font-medium text-brand-blue-dark hover:text-brand-orange"
+                className="py-3 font-medium text-brand-blue-dark hover:text-brand-orange"
               >
                 {link.label}
               </Link>

@@ -1,4 +1,3 @@
-// src/app/(site)/depoimentos/page.tsx
 import type { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { depoimentosQuery } from "@/sanity/lib/queries";
@@ -21,12 +20,12 @@ export default async function DepoimentosPage() {
 
   return (
     <>
-      <section className="py-20">
+      <section className="py-20 sm:py-24">
         <Container className="flex flex-col gap-12">
           <SectionTitle
             eyebrow="Experiências reais"
-            title="A confiança de quem construiu conosco"
-            description="Conheça a experiência de clientes que confiam na WMaia para apoiar suas rotinas contábeis e empresariais."
+            title="A confiança de quem conta com a WMaia"
+            description="Experiências de clientes atendidos em diferentes áreas do escritório."
           />
           {depoimentos && depoimentos.length > 0 ? (
             <div className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -39,31 +38,26 @@ export default async function DepoimentosPage() {
                   texto={depoimento.texto ?? ""}
                   nota={depoimento.nota}
                   servicoNome={depoimento.tipoServico?.nome}
-                  obraTitulo={depoimento.obraRelacionada?.titulo}
-                  obraSlug={depoimento.obraRelacionada?.slug}
                 />
               ))}
             </div>
           ) : (
             <p className="text-foreground/60">
-              Nenhum depoimento cadastrado ainda.
+              Os depoimentos podem ser cadastrados pelo Studio.
             </p>
           )}
         </Container>
       </section>
 
-      <section className="bg-navy py-16">
+      <section className="bg-brand-blue-dark py-16">
         <Container className="flex flex-col items-center gap-4 text-center text-white">
-          <h2 className="font-display text-2xl sm:text-3xl">
-            Seu projeto também pode começar com uma boa experiência.
+          <h2 className="text-2xl font-bold sm:text-3xl">
+            Conte com uma equipe próxima da sua rotina.
           </h2>
-          <p className="max-w-lg text-white/80">
-            Converse com nossa equipe e descubra como podemos planejar sua
-            obra com mais controle, organização e segurança.
+          <p className="max-w-lg text-white/75">
+            Fale com a WMaia para entender quais serviços fazem sentido para sua necessidade.
           </p>
-          <Button href="/orcamento" variant="primary">
-            Solicitar Orçamento
-          </Button>
+          <Button href="/contato">Entrar em contato</Button>
         </Container>
       </section>
     </>
