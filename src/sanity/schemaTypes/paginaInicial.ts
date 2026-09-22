@@ -66,7 +66,7 @@ export const paginaInicial = defineType({
       name: "tituloGestao",
       title: "Título da Seção de Gestão Única",
       type: "string",
-      initialValue: "Uma obra. Uma única gestão.",
+      initialValue: "Contabilidade próxima para decisões mais seguras.",
     }),
     defineField({
       name: "textoGestao",
@@ -74,7 +74,7 @@ export const paginaInicial = defineType({
       type: "text",
       rows: 3,
       initialValue:
-        "Da análise inicial à entrega das chaves, a Bezel centraliza planejamento, orçamento, fornecedores, compras, mão de obra, cronograma e acompanhamento da execução.",
+        "A WMaia reúne contabilidade, orientação e acompanhamento para apoiar empresas e profissionais em suas rotinas e decisões.",
     }),
   ],
 });

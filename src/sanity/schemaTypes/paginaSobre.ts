@@ -10,7 +10,7 @@ export const paginaSobre = defineType({
       name: "titulo",
       title: "Título",
       type: "string",
-      initialValue: "Sobre a BEZEL",
+      initialValue: "Sobre a WMaia",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -45,23 +45,23 @@ export const paginaSobre = defineType({
     }),
         defineField({
       name: "tituloDiferenciais",
-      title: "Título - Por que escolher a Bezel",
+      title: "Título - Por que escolher a WMaia",
       type: "string",
-      initialValue: "Por que escolher a Bezel?",
+      initialValue: "Por que escolher a WMaia?",
     }),
     defineField({
       name: "subtituloDiferenciais",
-      title: "Subtítulo - Por que escolher a Bezel",
+      title: "Subtítulo - Por que escolher a WMaia",
       type: "string",
-      initialValue: "Construímos com método, não com improviso.",
+      initialValue: "Proximidade, clareza e segurança para cuidar da sua empresa.",
     }),
     defineField({
       name: "textoDiferenciais",
-      title: "Texto - Por que escolher a Bezel",
+      title: "Texto - Por que escolher a WMaia",
       type: "text",
       rows: 4,
       initialValue:
-        "Cada obra é conduzida a partir de planejamento, orçamento, cronograma e acompanhamento contínuo. Centralizamos profissionais, fornecedores, compras e execução para proporcionar ao cliente mais controle e menos preocupações durante todo o processo.",
+        "Atuamos de forma próxima e organizada, acompanhando as rotinas contábeis e orientando cada cliente com clareza para que tenha mais segurança nas decisões do dia a dia.",
     }),
     defineField({
       name: "diferenciais",

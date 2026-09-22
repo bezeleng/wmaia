@@ -7,7 +7,7 @@ import { ObraCard } from "@/components/sections/ObraCard";
 
 export const metadata: Metadata = {
   title: "Obras",
-  description: "Acompanhe as obras executadas e em andamento pela BEZEL.",
+  description: "Conteúdos institucionais da WMaia.",
   alternates: {
     canonical: "/obras",
   },

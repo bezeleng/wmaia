@@ -5,7 +5,7 @@ import { OrcamentoForm } from "@/components/forms/OrcamentoForm";
 
 export const metadata: Metadata = {
   title: "Solicitar Orçamento",
-  description: "Solicite um orçamento para o seu projeto com a BEZEL Engenharia.",
+  description: "Entre em contato com a WMaia para entender como podemos atender sua empresa.",
   alternates: {
     canonical: "/orcamento",
   },

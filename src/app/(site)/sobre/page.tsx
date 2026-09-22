@@ -11,7 +11,7 @@ import { Diferenciais } from "@/components/sections/Diferenciais";
 
 export const metadata: Metadata = {
   title: "Sobre",
-  description: "Conheça a história, missão e valores da BEZEL Engenharia.",
+  description: "Conheça a história, missão e valores da WMaia Contabilidade.",
   alternates: {
     canonical: "/sobre",
   },

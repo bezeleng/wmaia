@@ -8,7 +8,7 @@ import { ServicoCard } from "@/components/sections/ServicoCard";
 export const metadata: Metadata = {
   title: "Serviços",
   description:
-    "Conheça os serviços da BEZEL em arquitetura, engenharia e construção.",
+    "Conheça os serviços contábeis e de assessoria da WMaia.",
   alternates: {
     canonical: "/servicos",
   },

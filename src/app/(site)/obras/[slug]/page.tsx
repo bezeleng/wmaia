@@ -129,7 +129,7 @@ export default async function ObraPage({ params }: ObraPageProps) {
           {obra.servicosRealizados && obra.servicosRealizados.length > 0 && (
             <div>
               <h2 className="font-display text-xl text-navy">
-                Escopo BEZEL
+                Escopo
               </h2>
               <div className="mt-4 flex flex-wrap gap-3">
                 {obra.servicosRealizados.map((servico) => (
@@ -153,13 +153,13 @@ export default async function ObraPage({ params }: ObraPageProps) {
             </div>
           )}
 
-          {obra.solucaoBezel && (
+          {obra.nossaSolucao && (
             <div className="max-w-3xl">
               <h2 className="font-display text-xl text-navy">
                 Nossa Solução
               </h2>
               <div className="mt-4">
-                <PortableTextContent value={obra.solucaoBezel} />
+                <PortableTextContent value={obra.nossaSolucao} />
               </div>
             </div>
           )}
@@ -193,7 +193,7 @@ export default async function ObraPage({ params }: ObraPageProps) {
             Está planejando construir ou reformar?
           </h2>
           <p className="max-w-lg text-white/80">
-            Converse com a BEZEL e descubra como podemos planejar, gerenciar
+            Converse com a WMaia e descubra como podemos apoiar
             e executar sua obra com mais segurança, controle e
             previsibilidade.
           </p>

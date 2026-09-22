@@ -257,7 +257,7 @@ export type Obra = {
     _type: "block";
     _key: string;
   }>;
-  solucaoBezel?: Array<{
+  nossaSolucao?: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -1088,7 +1088,7 @@ export type ObraBySlugQueryResult = {
     _type: "block";
     _key: string;
   }>;
-  solucaoBezel?: Array<{
+  nossaSolucao?: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;

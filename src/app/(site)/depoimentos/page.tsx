@@ -10,7 +10,7 @@ import { DepoimentoCard } from "@/components/sections/DepoimentoCard";
 export const metadata: Metadata = {
   title: "Depoimentos",
   description:
-    "Cada obra envolve decisões importantes. Conheça a experiência de clientes que confiaram à BEZEL o planejamento, gerenciamento e execução de seus projetos.",
+    "Conheça a experiência de clientes que confiam na WMaia para apoiar suas rotinas contábeis e empresariais.",
   alternates: {
     canonical: "/depoimentos",
   },
@@ -26,7 +26,7 @@ export default async function DepoimentosPage() {
           <SectionTitle
             eyebrow="Experiências reais"
             title="A confiança de quem construiu conosco"
-            description="Cada obra envolve decisões importantes. Conheça a experiência de clientes que confiaram à BEZEL o planejamento, gerenciamento e execução de seus projetos."
+            description="Conheça a experiência de clientes que confiam na WMaia para apoiar suas rotinas contábeis e empresariais."
           />
           {depoimentos && depoimentos.length > 0 ? (
             <div className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -165,7 +165,7 @@ export const obra = defineType({
       of: [{ type: "block" }],
     }),
     defineField({
-      name: "solucaoBezel",
+      name: "nossaSolucao",
       title: "Nossa Solução",
       type: "array",
       of: [{ type: "block" }],

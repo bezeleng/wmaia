@@ -1682,7 +1682,7 @@
         },
         "optional": true
       },
-      "solucaoBezel": {
+      "nossaSolucao": {
         "type": "objectAttribute",
         "value": {
           "type": "array",
