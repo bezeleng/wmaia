@@ -14,7 +14,7 @@ export const depoimento = defineType({
     }),
     defineField({
       name: "cargoEmpresa",
-      title: "Cargo / Empresa",
+      title: "Cargo / Empresa / Condomínio",
       type: "string",
     }),
     defineField({
@@ -38,22 +38,15 @@ export const depoimento = defineType({
     }),
     defineField({
       name: "tipoServico",
-      title: "Tipo de Serviço",
+      title: "Serviço Relacionado",
       type: "reference",
       to: [{ type: "servico" }],
     }),
     defineField({
-      name: "obraRelacionada",
-      title: "Obra Relacionada",
-      type: "reference",
-      to: [{ type: "obra" }],
-    }),
-    defineField({
       name: "destaque",
-      title: "Destaque",
+      title: "Exibir na Página Inicial",
       type: "boolean",
       initialValue: false,
-      description: "Exibido na Home quando marcado.",
     }),
   ],
 });

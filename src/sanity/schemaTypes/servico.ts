@@ -1,3 +1,4 @@
+// src/sanity/schemaTypes/servico.ts
 import { defineField, defineType } from "sanity";
 
 export const servico = defineType({
@@ -19,6 +20,22 @@ export const servico = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "area",
+      title: "Área",
+      type: "string",
+      options: {
+        list: [
+          { title: "Contábil", value: "contabil" },
+          { title: "Fiscal", value: "fiscal" },
+          { title: "Societária", value: "societaria" },
+          { title: "Trabalhista", value: "trabalhista" },
+          { title: "Tributária", value: "tributaria" },
+          { title: "Pessoa Física", value: "pessoa_fisica" },
+          { title: "Consultoria", value: "consultoria" },
+        ],
+      },
+    }),
+    defineField({
       name: "icone",
       title: "Ícone",
       type: "image",
@@ -29,14 +46,14 @@ export const servico = defineType({
       type: "text",
       rows: 3,
       description: "Usada em cards e listagens.",
-      validation: (Rule) => Rule.required().max(160),
+      validation: (Rule) => Rule.required().max(180),
     }),
     defineField({
       name: "descricaoLonga",
       title: "Descrição Completa",
       type: "array",
       of: [{ type: "block" }],
-      description: "Usada na página individual do serviço.",
+      description: "Conteúdo da página individual do serviço.",
     }),
     defineField({
       name: "ordem",

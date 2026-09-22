@@ -1,46 +1,49 @@
-import type { StructureResolver } from 'sanity/structure'
-
-const SINGLETON_TYPES = new Set([
-  'configuracaoSite',
-  'paginaInicial',
-  'paginaSobre',
-  'politicaPrivacidade',
-])
+import type { StructureResolver } from "sanity/structure";
 
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title('Content')
+    .title("WMaia")
     .items([
       S.listItem()
-        .title('Configurações do Site')
-        .id('configuracaoSite')
+        .title("Configurações do Site")
+        .id("configuracaoSite")
         .child(
           S.document()
-            .schemaType('configuracaoSite')
-            .documentId('5095b446-13af-40d3-a948-d3554b7b415e')
+            .schemaType("configuracaoSite")
+            .documentId("configuracaoSite")
         ),
       S.listItem()
-        .title('Página Inicial')
-        .id('paginaInicial')
+        .title("Página Inicial")
+        .id("paginaInicial")
         .child(
-          S.document().schemaType('paginaInicial').documentId('paginaInicial')
+          S.document().schemaType("paginaInicial").documentId("paginaInicial")
         ),
       S.listItem()
-        .title('Página Sobre')
-        .id('paginaSobre')
+        .title("Quem Somos")
+        .id("paginaSobre")
         .child(
-          S.document().schemaType('paginaSobre').documentId('paginaSobre')
+          S.document().schemaType("paginaSobre").documentId("paginaSobre")
         ),
       S.listItem()
-        .title('Política de Privacidade')
-        .id('politicaPrivacidade')
+        .title("Administração Condominial")
+        .id("paginaCondominios")
         .child(
           S.document()
-            .schemaType('politicaPrivacidade')
-            .documentId('politicaPrivacidade')
+            .schemaType("paginaCondominios")
+            .documentId("paginaCondominios")
         ),
       S.divider(),
-      ...S.documentTypeListItems().filter(
-        (listItem) => !SINGLETON_TYPES.has(listItem.getId() as string)
-      ),
-    ])
+      S.documentTypeListItem("servico").title("Serviços"),
+      S.documentTypeListItem("ferramenta").title("Ferramentas e Links Úteis"),
+      S.documentTypeListItem("depoimento").title("Depoimentos"),
+      S.documentTypeListItem("membroEquipe").title("Equipe"),
+      S.divider(),
+      S.listItem()
+        .title("Política de Privacidade")
+        .id("politicaPrivacidade")
+        .child(
+          S.document()
+            .schemaType("politicaPrivacidade")
+            .documentId("politicaPrivacidade")
+        ),
+    ]);

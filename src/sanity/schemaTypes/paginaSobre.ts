@@ -3,19 +3,19 @@ import { defineField, defineType } from "sanity";
 
 export const paginaSobre = defineType({
   name: "paginaSobre",
-  title: "Página Sobre",
+  title: "Quem Somos",
   type: "document",
   fields: [
     defineField({
       name: "titulo",
       title: "Título",
       type: "string",
-      initialValue: "Sobre a WMaia",
+      initialValue: "Quem Somos",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "textoIntroducao",
-      title: "Texto de Introdução",
+      title: "História / Apresentação",
       type: "array",
       of: [{ type: "block" }],
     }),
@@ -29,43 +29,55 @@ export const paginaSobre = defineType({
       name: "missao",
       title: "Missão",
       type: "text",
-      rows: 3,
+      rows: 4,
+      initialValue:
+        "Assessorar empresas, condomínios e clientes em suas rotinas administrativas e contábeis, fornecendo informações confiáveis e soluções adequadas às exigências atuais.",
     }),
     defineField({
       name: "visao",
       title: "Visão",
       type: "text",
-      rows: 3,
+      rows: 4,
+      initialValue:
+        "Ser reconhecida pela abrangência das soluções contábeis e administrativas, agregando valor econômico e fortalecendo relações de parceria com cada cliente.",
     }),
     defineField({
       name: "valores",
       title: "Valores",
       type: "array",
       of: [{ type: "string" }],
+      initialValue: [
+        "Sustentabilidade",
+        "Comprometimento com o cliente",
+        "Honestidade",
+        "Responsabilidade",
+        "Ética",
+        "Eficiência",
+      ],
     }),
-        defineField({
+    defineField({
       name: "tituloDiferenciais",
-      title: "Título - Por que escolher a WMaia",
+      title: "Título — Diferenciais",
       type: "string",
       initialValue: "Por que escolher a WMaia?",
     }),
     defineField({
       name: "subtituloDiferenciais",
-      title: "Subtítulo - Por que escolher a WMaia",
+      title: "Subtítulo — Diferenciais",
       type: "string",
       initialValue: "Proximidade, clareza e segurança para cuidar da sua empresa.",
     }),
     defineField({
       name: "textoDiferenciais",
-      title: "Texto - Por que escolher a WMaia",
+      title: "Texto — Diferenciais",
       type: "text",
       rows: 4,
       initialValue:
-        "Atuamos de forma próxima e organizada, acompanhando as rotinas contábeis e orientando cada cliente com clareza para que tenha mais segurança nas decisões do dia a dia.",
+        "Atuamos de forma próxima e organizada, acompanhando as rotinas contábeis e orientando cada cliente para que tenha mais segurança nas decisões do dia a dia.",
     }),
     defineField({
       name: "diferenciais",
-      title: "Diferenciais (4 itens)",
+      title: "Diferenciais",
       type: "array",
       of: [
         {
@@ -83,11 +95,11 @@ export const paginaSobre = defineType({
           },
         },
       ],
-      validation: (Rule) => Rule.max(4),
+      validation: (Rule) => Rule.max(6),
     }),
     defineField({
       name: "mostrarEquipe",
-      title: "Mostrar seção de equipe nesta página?",
+      title: "Mostrar equipe nesta página?",
       type: "boolean",
       initialValue: true,
     }),
