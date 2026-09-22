@@ -23,7 +23,7 @@ export async function enviarEmail({
   replyTo,
 }: EnviarEmailParams) {
   await transporter.sendMail({
-    from: `"Site BEZEL Engenharia" <${process.env.SMTP_USER}>`,
+    from: `"Site WMaia Contabilidade" <${process.env.SMTP_USER}>`,
     to: process.env.SMTP_USER, // envia para a própria caixa de contato
     replyTo,
     subject: assunto,

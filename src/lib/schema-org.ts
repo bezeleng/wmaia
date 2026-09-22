@@ -21,9 +21,9 @@ export function getOrganizationSchema(config: ConfiguracaoSiteData | null) {
 
   return {
     "@context": "https://schema.org",
-    "@type": "GeneralContractor",
+    "@type": "AccountingService",
     name: config.nomeEmpresa,
-    url: "https://bezel.com.br",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     telephone: config.telefone,
     email: config.email,
     taxID: config.cnpj ?? undefined,

@@ -7,7 +7,7 @@ interface WhatsAppButtonProps {
 }
 
 const MENSAGEM_PADRAO =
-  "Olá! Vim pelo site da BEZEL e gostaria de conversar sobre meu projeto.";
+  "Olá! Vim pelo site da WMaia e gostaria de falar com a equipe.";
 
 export function WhatsAppButton({ whatsapp, mensagem }: WhatsAppButtonProps) {
   if (!whatsapp) return null;

@@ -25,24 +25,26 @@ const trajanPro = localFont({
   ],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bezel.com.br"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "BEZEL Engenharia | Arquitetura, Engenharia e Construção",
-    template: "%s | BEZEL Engenharia",
+    default: "WMaia Contabilidade | Contabilidade e Assessoria Empresarial",
+    template: "%s | WMaia Contabilidade",
   },
-  description: "Arquitetura, engenharia e construção.",
+  description: "Soluções contábeis e assessoria empresarial.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    siteName: "BEZEL Engenharia",
-    title: "BEZEL Engenharia | Arquitetura, Engenharia e Construção",
-    description: "Arquitetura, engenharia e construção.",
+    siteName: "WMaia Contabilidade",
+    title: "WMaia Contabilidade | Contabilidade e Assessoria Empresarial",
+    description: "Soluções contábeis e assessoria empresarial.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BEZEL Engenharia | Arquitetura, Engenharia e Construção",
-    description: "Arquitetura, engenharia e construção.",
+    title: "WMaia Contabilidade | Contabilidade e Assessoria Empresarial",
+    description: "Soluções contábeis e assessoria empresarial.",
   },
 };
 

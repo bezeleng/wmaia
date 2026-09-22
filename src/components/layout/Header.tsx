@@ -4,22 +4,16 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { navLinks } from "@/lib/navigation";
-import Image from "next/image";
 
 export function Header() {
   return (
     <header className="relative z-50 border-b border-navy/10 bg-white">
       <Container className="flex items-center justify-between py-3 sm:py-4">
-        <Link href="/" className="flex items-center" aria-label="BEZEL - Página inicial">
-  <Image
-    src="/logo-bezel.svg"
-    alt="BEZEL"
-    width={180}
-    height={60}
-    priority
-    className="h-auto w-[115px] sm:w-[170px]"
-  />
-</Link>
+        <Link href="/" className="flex items-center" aria-label="WMaia - Página inicial">
+          <span className="font-display text-xl font-bold tracking-wide text-navy sm:text-2xl">
+            WMaia
+          </span>
+        </Link>
 
         <nav className="hidden gap-8 sm:flex">
           {navLinks.map((link) => (
