@@ -11,12 +11,12 @@ export async function ServicosGrid() {
   if (!servicos || servicos.length === 0) return null;
 
   return (
-    <section className="py-20">
+    <section className="py-20 sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionTitle
           eyebrow="O que fazemos"
           title="Nossos Serviços"
-          description="Soluções completas para construir, reformar e gerenciar sua obra, do planejamento à entrega."
+          description="Soluções contábeis e empresariais para apoiar sua rotina, suas obrigações e as decisões do seu negócio."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {servicos.map((servico) => (

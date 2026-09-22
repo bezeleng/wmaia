@@ -34,11 +34,11 @@ export async function Footer() {
   ].filter((rede) => rede.url);
 
   return (
-    <footer className="bg-navy text-white">
+    <footer className="border-t-4 border-brand-orange bg-brand-blue-dark text-white">
       <Container className="grid gap-10 py-12 sm:grid-cols-3">
         <div className="flex flex-col gap-3">
           <div>
-            <span className="font-display text-xl">WMaia</span>
+            <span className="font-display text-xl font-bold">WMaia</span>
             <p className="mt-1 text-sm text-white/70">
               Contabilidade • Assessoria • Consultoria
             </p>
@@ -59,7 +59,7 @@ export async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="text-white/70 transition-colors hover:text-gold"
+                  className="text-white/70 transition-colors hover:text-brand-orange"
                 >
                   <Icon className="h-10 w-10" />
                 </a>
@@ -82,12 +82,12 @@ export async function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-gold"
+                className="text-white/80 hover:text-brand-orange"
               >
                 {link.label}
               </a>
             ) : (
-              <Link key={link.href} href={link.href} className="text-white/80 hover:text-gold">
+              <Link key={link.href} href={link.href} className="text-white/80 hover:text-brand-orange">
                 {link.label}
               </Link>
             )
@@ -98,7 +98,7 @@ export async function Footer() {
       <div className="border-t border-white/10 py-4">
         <Container className="flex flex-col gap-2 text-xs text-white/60 sm:flex-row sm:justify-between">
           <span>© {new Date().getFullYear()} WMaia Contabilidade. Todos os direitos reservados.</span>
-          <Link href="/politica-de-privacidade" className="hover:text-gold">
+          <Link href="/politica-de-privacidade" className="hover:text-brand-orange">
             Política de Privacidade
           </Link>
         </Container>

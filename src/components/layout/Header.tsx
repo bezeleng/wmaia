@@ -16,8 +16,8 @@ export async function Header() {
     : null;
 
   return (
-    <header className="relative z-50 border-b border-navy/10 bg-white">
-      <Container className="flex items-center justify-between py-3 sm:py-4">
+    <header className="sticky top-0 z-50 border-b border-border-soft bg-white/95 shadow-sm backdrop-blur-md">
+      <Container className="flex min-h-20 items-center justify-between gap-6 py-3">
         <Link href="/" className="flex items-center" aria-label="WMaia - Página inicial">
           {logoUrl ? (
             <Image
@@ -26,10 +26,10 @@ export async function Header() {
               width={180}
               height={60}
               priority
-              className="h-auto w-[115px] sm:w-[170px]"
+              className="h-auto max-h-14 w-[120px] object-contain sm:w-[170px]"
             />
           ) : (
-            <span className="font-display text-xl font-bold tracking-wide text-navy sm:text-2xl">
+            <span className="font-display text-xl font-extrabold tracking-tight text-brand-blue-dark sm:text-2xl">
               WMaia
             </span>
           )}
@@ -43,7 +43,7 @@ export async function Header() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-sm text-navy hover:text-gold"
+                className="rounded-lg border border-brand-orange/25 bg-brand-orange-soft px-3 py-2 font-sans text-sm font-semibold text-brand-orange-dark transition-colors hover:border-brand-orange/50 hover:bg-brand-orange/10"
               >
                 {link.label}
               </a>
@@ -51,7 +51,7 @@ export async function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-sans text-sm text-navy hover:text-gold"
+                className="font-sans text-sm font-medium text-brand-blue-dark transition-colors hover:text-brand-orange"
               >
                 {link.label}
               </Link>
