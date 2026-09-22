@@ -49,15 +49,22 @@ export function ServicoCard({
       ) : null}
 
       <div className="flex flex-1 flex-col gap-4 p-7">
-        {!imagemUrl && (
-          <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-orange-soft">
-            {iconeUrl ? (
-              <Image src={iconeUrl} alt="" width={42} height={42} />
-            ) : (
+        {!imagemUrl &&
+          (iconeUrl ? (
+            <div className="flex h-20 w-20 items-center justify-center">
+              <Image
+                src={iconeUrl}
+                alt=""
+                width={72}
+                height={72}
+                className="h-[72px] w-[72px] object-contain"
+              />
+            </div>
+          ) : (
+            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-orange-soft">
               <span className="text-xl font-bold text-brand-orange">+</span>
-            )}
-          </div>
-        )}
+            </div>
+          ))}
 
         <h3 className="font-display text-xl font-bold text-brand-blue-dark">
           {titulo}
