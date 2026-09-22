@@ -76,6 +76,7 @@ export type PaginaInicialQueryResult = {
   tituloHero?: string | null;
   subtituloHero?: string | null;
   imagemFundo?: SanityImage | null;
+  imagemFundoMobile?: SanityImage | null;
   textoCta?: string | null;
   linkCta?: string | null;
   tituloQuemSomos?: string | null;
