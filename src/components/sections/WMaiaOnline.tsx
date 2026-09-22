@@ -33,7 +33,7 @@ export async function WMaiaOnline() {
       descricao:
         data?.descricaoAreaCondominial ??
         "Acesse o portal de administração condominial, documentos e informações do condomínio.",
-      href: data?.sistemaCondominialUrl ?? config.sistemaCondominialUrl,
+      href: data?.sistemaCondominialUrl ?? config.sistemaCondominialUrl ?? "#",
       tipo: "condominio" as const,
     },
     {
@@ -41,7 +41,7 @@ export async function WMaiaOnline() {
       descricao:
         data?.descricaoAreaContabilidade ??
         "Acesse o portal contábil da WMaia para documentos, informações e atendimento.",
-      href: data?.sistemaContabilidadeUrl ?? config.sistemaContabilidadeUrl,
+      href: data?.sistemaContabilidadeUrl ?? config.sistemaContabilidadeUrl ?? "#",
       tipo: "contabilidade" as const,
     },
   ];
