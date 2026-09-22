@@ -34,16 +34,16 @@ export async function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border-soft bg-white/95 shadow-sm backdrop-blur-md">
-      <Container className="flex min-h-24 items-center justify-between gap-6 py-3">
+      <Container className="flex min-h-28 items-center justify-between gap-4 py-3 sm:min-h-24 sm:gap-6">
         <Link href="/" className="flex shrink-0 items-center" aria-label="WMaia - Página inicial">
           {logoUrl ? (
             <Image
               src={logoUrl}
               alt={config?.nomeEmpresa || "WMaia"}
-              width={205}
-              height={170}
+              width={260}
+              height={210}
               priority
-              className="h-16 w-auto object-contain sm:h-20 lg:h-[88px]"
+              className="h-24 w-auto object-contain sm:h-20 lg:h-[88px]"
             />
           ) : (
             <span className="text-xl font-extrabold tracking-tight text-brand-blue-dark sm:text-2xl">
