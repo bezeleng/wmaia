@@ -12,7 +12,7 @@ import { PortableTextContent } from "@/components/ui/PortableTextContent";
 
 export async function generateStaticParams() {
   const slugs = await client.fetch(servicoSlugsQuery);
-  return slugs.map(({ slug }) => ({ slug }));
+  return slugs.filter(({ slug }) => Boolean(slug)).map(({ slug }) => ({ slug: slug! }));
 }
 
 interface ServicoPageProps {
@@ -51,7 +51,7 @@ export default async function ServicoPage({ params }: ServicoPageProps) {
   return (
     <section className="py-20">
       <Container className="max-w-3xl">
-        <h1 className="font-display text-3xl text-navy sm:text-4xl">
+        <h1 className="text-3xl font-bold text-brand-blue-dark sm:text-4xl">
           {servico.titulo}
         </h1>
         {servico.descricaoLonga && (

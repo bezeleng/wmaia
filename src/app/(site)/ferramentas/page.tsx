@@ -57,7 +57,7 @@ export default async function FerramentasPage() {
                         {item.links.map((link, index) => (
                           <a
                             key={`${link.titulo ?? "link"}-${index}`}
-                            href={link.url}
+                            href={link.url ?? "#"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm font-semibold text-brand-orange-dark hover:text-brand-orange"

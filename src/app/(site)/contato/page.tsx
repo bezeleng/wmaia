@@ -47,7 +47,7 @@ export default async function ContatoPage() {
             <div className="mt-8 flex flex-col gap-2 text-brand-blue-dark">
               <p>Telefone: {config.telefone}</p>
               <p>Telefone: {config.telefoneSecundario}</p>
-              <p>WhatsApp: {formatarWhatsapp(config.whatsapp)}</p>
+              <p>WhatsApp: {formatarWhatsapp(config.whatsapp || configFallback.whatsapp)}</p>
               <p>E-mail: {config.email}</p>
               <p>Endereço: {config.endereco}</p>
               <p>Segunda à Quinta: {config.horarioSegQui}</p>
