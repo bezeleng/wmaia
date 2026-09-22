@@ -19,19 +19,34 @@ export async function Hero() {
     query: paginaInicialQuery,
   });
 
-  const imagemUrl = paginaInicial?.imagemFundo
+  const imagemDesktopUrl = paginaInicial?.imagemFundo
     ? urlFor(paginaInicial.imagemFundo).width(1920).height(1080).url()
     : null;
 
+  const imagemMobileUrl = paginaInicial?.imagemFundoMobile
+    ? urlFor(paginaInicial.imagemFundoMobile).width(900).height(1125).url()
+    : imagemDesktopUrl;
+
   return (
     <section className="relative flex min-h-[640px] items-center overflow-hidden bg-brand-blue-dark">
-      {imagemUrl && (
+      {imagemMobileUrl && (
         <Image
-          src={imagemUrl}
+          src={imagemMobileUrl}
           alt=""
           fill
           priority
-          className="object-cover"
+          sizes="100vw"
+          className="object-cover md:hidden"
+        />
+      )}
+      {imagemDesktopUrl && (
+        <Image
+          src={imagemDesktopUrl}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hidden object-cover md:block"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-dark/95 via-brand-blue-dark/82 to-brand-blue-dark/35" />
