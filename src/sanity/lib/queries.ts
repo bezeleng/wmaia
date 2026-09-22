@@ -1,6 +1,6 @@
 import { defineQuery } from "next-sanity";
 
-export const configuracaoSiteQuery = defineQuery('*[_type == "configuracaoSite"][0]');
+export const configuracaoSiteQuery = defineQuery('*[_type == "configuracaoSite" && _id == "configuracaoSite"][0]');
 export const paginaInicialQuery = defineQuery('*[_type == "paginaInicial"][0]');
 export const paginaSobreQuery = defineQuery('*[_type == "paginaSobre"][0]');
 export const paginaCondominiosQuery = defineQuery('*[_type == "paginaCondominios"][0]');
