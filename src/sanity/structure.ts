@@ -62,8 +62,7 @@ export const structure: StructureResolver = (S) =>
                   .id(id)
                   .child(S.document().schemaType("servico").documentId(id).title(title))
               ),
-              S.divider(),
-              S.documentTypeListItem("servico").title("Todos os Serviços"),
+
             ])
         ),
       S.listItem()
