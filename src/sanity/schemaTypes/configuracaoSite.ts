@@ -11,6 +11,7 @@ export const configuracaoSite = defineType({
       title: "Nome da Empresa",
       type: "string",
       validation: (Rule) => Rule.required(),
+      initialValue: "WMaia Contabilidade",
     }),
     defineField({
       name: "logo",
@@ -22,12 +23,20 @@ export const configuracaoSite = defineType({
       name: "telefone",
       title: "Telefone",
       type: "string",
+      initialValue: "(12) 3951-8007",
+    }),
+    defineField({
+      name: "telefoneSecundario",
+      title: "Telefone Secundário",
+      type: "string",
+      initialValue: "(12) 3959-1263",
     }),
     defineField({
       name: "whatsapp",
       title: "WhatsApp (somente números, com DDI)",
       type: "string",
       description: "Ex: 5511999999999",
+      initialValue: "5512982251788",
     }),
     defineField({
       name: "mensagemWhatsapp",
@@ -35,7 +44,7 @@ export const configuracaoSite = defineType({
       type: "text",
       rows: 3,
       initialValue:
-        "Olá! Vim pelo site da BEZEL e gostaria de conversar sobre meu projeto.",
+        "Olá! Vim pelo site da WMaia e gostaria de falar com a equipe.",
       description: "Texto que já vem preenchido ao abrir a conversa.",
     }),
     defineField({
@@ -43,6 +52,7 @@ export const configuracaoSite = defineType({
       title: "E-mail",
       type: "string",
       validation: (Rule) => Rule.email(),
+      initialValue: "contato@wmaia.adm.br",
     }),
     defineField({
       name: "endereco",
@@ -51,12 +61,14 @@ export const configuracaoSite = defineType({
       rows: 3,
       description:
         "Usado como exibição simples. Para o mapa e dados estruturados, preencha também os campos estruturados abaixo.",
+      initialValue: "Rua Luiz Simon, 48, Centro, Jacareí - SP",
     }),
     defineField({
       name: "logradouro",
       title: "Logradouro",
       type: "string",
-      description: 'Ex: "Rua Targino Emygdio dos Santos, 140"',
+      description: 'Ex: "Rua Luiz Simon, 48"',
+      initialValue: "Rua Luiz Simon, 48",
     }),
     defineField({
       name: "cidade",
@@ -85,7 +97,7 @@ export const configuracaoSite = defineType({
       title: "Região de Atendimento",
       type: "array",
       of: [{ type: "string" }],
-      initialValue: ["Jacareí", "São José dos Campos", "Vale do Paraíba"],
+      initialValue: ["Jacareí", "Vale do Paraíba"],
     }),
     defineField({
       name: "linkAvaliacoesGoogle",
@@ -93,11 +105,31 @@ export const configuracaoSite = defineType({
       type: "url",
     }),
     defineField({
+      name: "horarioSegQui",
+      title: "Horário — Segunda à Quinta",
+      type: "string",
+      initialValue: "8:00 às 12:00 | 13:30 às 17:30",
+    }),
+    defineField({
+      name: "horarioSexta",
+      title: "Horário — Sexta",
+      type: "string",
+      initialValue: "8:00 às 12:00 | 13:30 às 17:00",
+    }),
+    defineField({
+      name: "sistemaUrl",
+      title: "Link de Acesso ao Sistema",
+      type: "url",
+      initialValue: "http://www.wmaia.adm.br/loginAdmin.htm",
+      validation: (Rule) => Rule.uri({ scheme: ["http", "https"] }),
+    }),
+    defineField({
       name: "instagramUrl",
       title: "Instagram (URL completa)",
       type: "url",
       validation: (Rule) =>
         Rule.uri({ scheme: ["http", "https"] }),
+      initialValue: "https://www.instagram.com/wmaiaadm/",
     }),
     defineField({
       name: "facebookUrl",

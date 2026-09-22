@@ -23,7 +23,7 @@ export function getOrganizationSchema(config: ConfiguracaoSiteData | null) {
     "@context": "https://schema.org",
     "@type": "AccountingService",
     name: config.nomeEmpresa,
-    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.wmaia.adm.br",
     telephone: config.telefone,
     email: config.email,
     taxID: config.cnpj ?? undefined,

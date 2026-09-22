@@ -10,6 +10,13 @@ import {
   YouTubeIcon,
 } from "@/components/ui/SocialIcons";
 
+function formatarWhatsapp(valor?: string | null) {
+  if (!valor) return null;
+  const numeros = valor.replace(/\D/g, "").replace(/^55/, "");
+  if (numeros.length !== 11) return valor;
+  return `(${numeros.slice(0, 2)}) ${numeros.slice(2, 7)}-${numeros.slice(7)}`;
+}
+
 export async function Footer() {
   const { data: config } = await sanityFetch({ query: configuracaoSiteQuery });
 
@@ -18,10 +25,7 @@ export async function Footer() {
       ? `${config.logradouro} — ${config.cidade}/${config.estado}`
       : config?.endereco;
 
-  const regiao =
-    config?.regiaoAtendimento && config.regiaoAtendimento.length > 0
-      ? config.regiaoAtendimento.join(" • ")
-      : null;
+  const whatsappExibicao = formatarWhatsapp(config?.whatsapp);
 
   const redesSociais = [
     { url: config?.instagramUrl, label: "Instagram", Icon: InstagramIcon },
@@ -31,7 +35,7 @@ export async function Footer() {
 
   return (
     <footer className="bg-navy text-white">
-      <Container className="flex flex-col gap-10 py-12 sm:flex-row sm:justify-between">
+      <Container className="grid gap-10 py-12 sm:grid-cols-3">
         <div className="flex flex-col gap-3">
           <div>
             <span className="font-display text-xl">WMaia</span>
@@ -39,10 +43,12 @@ export async function Footer() {
               Contabilidade • Assessoria • Consultoria
             </p>
           </div>
-          <div className="flex flex-col gap-1 text-sm text-white/50">
+          <div className="flex flex-col gap-1 text-sm text-white/60">
             {enderecoLinha && <p>{enderecoLinha}</p>}
-            {config?.cnpj && <p>CNPJ: {config.cnpj}</p>}
-            {regiao && <p>{regiao}</p>}
+            {config?.email && <p>{config.email}</p>}
+            {config?.telefone && <p>{config.telefone}</p>}
+            {config?.telefoneSecundario && <p>{config.telefoneSecundario}</p>}
+            {whatsappExibicao && <p>WhatsApp: {whatsappExibicao}</p>}
           </div>
           {redesSociais.length > 0 && (
             <div className="mt-2 flex gap-5">
@@ -62,12 +68,30 @@ export async function Footer() {
           )}
         </div>
 
+        <div className="flex flex-col gap-2 text-sm text-white/70">
+          <strong className="text-white">Horário de atendimento</strong>
+          {config?.horarioSegQui && <p>{config.horarioSegQui}</p>}
+          {config?.horarioSexta && <p>{config.horarioSexta}</p>}
+        </div>
+
         <nav className="flex flex-col gap-2 text-sm">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-white/80 hover:text-gold">
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-gold"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.href} href={link.href} className="text-white/80 hover:text-gold">
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
       </Container>
 

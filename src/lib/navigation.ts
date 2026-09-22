@@ -1,11 +1,19 @@
 // src/lib/navigation.ts
-export const navLinks = [
+export type NavLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Sobre", href: "/sobre" },
   { label: "Serviços", href: "/servicos" },
-  { label: "Projetos", href: "/projetos" },
-  { label: "Obras", href: "/obras" },
-  { label: "Vídeos", href: "/videos" },
   { label: "Depoimentos", href: "/depoimentos" },
   { label: "Contato", href: "/contato" },
-] as const;
+  {
+    label: "Acesso ao Sistema",
+    href: "http://www.wmaia.adm.br/loginAdmin.htm",
+    external: true,
+  },
+];

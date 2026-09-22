@@ -24,16 +24,29 @@ export function MobileNav() {
 
       {isOpen && (
         <nav className="absolute inset-x-0 top-full z-50 flex flex-col gap-1 border-t border-navy/10 bg-white px-6 py-4 shadow-md">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="py-3 font-sans text-navy hover:text-gold"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="py-3 font-sans text-navy hover:text-gold"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="py-3 font-sans text-navy hover:text-gold"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
       )}
     </div>

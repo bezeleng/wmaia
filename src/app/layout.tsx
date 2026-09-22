@@ -25,7 +25,7 @@ const trajanPro = localFont({
   ],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.wmaia.adm.br";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

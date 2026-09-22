@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Contato",
   description:
-    "Entre em contato com a BEZEL Engenharia em Jacareí, atendendo Jacareí, São José dos Campos e o Vale do Paraíba.",
+    "Entre em contato com a WMaia Contabilidade em Jacareí.",
   alternates: {
     canonical: "/contato",
   },
@@ -42,8 +42,12 @@ export default async function ContatoPage() {
             />
             <div className="mt-8 flex flex-col gap-2 text-navy">
               {config?.telefone && <p>Telefone: {config.telefone}</p>}
+              {config?.telefoneSecundario && <p>Telefone: {config.telefoneSecundario}</p>}
+              {config?.whatsapp && <p>WhatsApp: (12) 98225-1788</p>}
               {config?.email && <p>E-mail: {config.email}</p>}
               {config?.endereco && <p>Endereço: {config.endereco}</p>}
+              {config?.horarioSegQui && <p>Segunda à Quinta: {config.horarioSegQui}</p>}
+              {config?.horarioSexta && <p>Sexta: {config.horarioSexta}</p>}
             </div>
           </div>
           <ContatoForm />

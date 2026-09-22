@@ -517,6 +517,7 @@ export type ConfiguracaoSite = {
     _type: "image";
   };
   telefone?: string;
+  telefoneSecundario?: string;
   whatsapp?: string;
   mensagemWhatsapp?: string;
   email?: string;
@@ -528,6 +529,9 @@ export type ConfiguracaoSite = {
   cnpj?: string;
   regiaoAtendimento?: Array<string>;
   linkAvaliacoesGoogle?: string;
+  horarioSegQui?: string;
+  horarioSexta?: string;
+  sistemaUrl?: string;
   instagramUrl?: string;
   facebookUrl?: string;
   youtubeUrl?: string;

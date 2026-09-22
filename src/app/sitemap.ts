@@ -7,7 +7,7 @@ import {
   obraSlugsQuery,
 } from "@/sanity/lib/queries";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.wmaia.adm.br";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [servicos, projetos, obras] = await Promise.all([
