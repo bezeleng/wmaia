@@ -6,10 +6,11 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "Sobre", href: "/sobre" },
+  { label: "Início", href: "/" },
+  { label: "Quem Somos", href: "/sobre" },
   { label: "Serviços", href: "/servicos" },
-  { label: "Depoimentos", href: "/depoimentos" },
+  { label: "Administração Condominial", href: "/administracao-condominial" },
+  { label: "Ferramentas", href: "/ferramentas" },
   { label: "Contato", href: "/contato" },
   {
     label: "Acesso ao Sistema",

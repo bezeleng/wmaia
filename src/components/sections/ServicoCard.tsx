@@ -6,6 +6,7 @@ import { urlFor } from "@/sanity/lib/image";
 interface ServicoCardProps {
   titulo: string;
   slug: string;
+  href?: string;
   descricaoCurta: string;
   icone?: NonNullable<unknown> | null;
 }
@@ -13,21 +14,23 @@ interface ServicoCardProps {
 export function ServicoCard({
   titulo,
   slug,
+  href,
   descricaoCurta,
   icone,
 }: ServicoCardProps) {
   const iconeUrl = icone ? urlFor(icone).width(96).height(96).url() : null;
+  const destino = href || (slug ? `/servicos/${slug}` : "/servicos");
 
   return (
     <Link
-      href={`/servicos/${slug}`}
+      href={destino}
       className="group flex min-h-64 flex-col gap-4 rounded-2xl border border-border-soft bg-white p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand-orange/40 hover:shadow-lg"
     >
       <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-orange-soft">
         {iconeUrl ? (
           <Image src={iconeUrl} alt="" width={42} height={42} />
         ) : (
-          <span className="h-3 w-3 rounded-full bg-brand-orange" />
+          <span className="text-xl font-bold text-brand-orange">+</span>
         )}
       </div>
       <h3 className="font-display text-xl font-bold text-brand-blue-dark">

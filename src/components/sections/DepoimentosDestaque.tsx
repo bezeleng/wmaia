@@ -1,4 +1,3 @@
-// src/components/sections/DepoimentosDestaque.tsx
 import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/live";
 import { depoimentosDestaqueQuery } from "@/sanity/lib/queries";
@@ -14,12 +13,13 @@ export async function DepoimentosDestaque() {
   if (!depoimentos || depoimentos.length === 0) return null;
 
   return (
-    <section className="py-20">
+    <section className="py-20 sm:py-24">
       <Container className="flex flex-col gap-10">
         <SectionTitle
           eyebrow="Experiências reais"
           title="O que nossos clientes dizem"
-          description="A confiança construída em cada projeto."
+          description="Relacionamentos de confiança construídos com proximidade e consistência."
+          align="center"
         />
         <div className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {depoimentos.map((depoimento) => (
@@ -31,14 +31,12 @@ export async function DepoimentosDestaque() {
               texto={depoimento.texto ?? ""}
               nota={depoimento.nota}
               servicoNome={depoimento.tipoServico?.nome}
-              obraTitulo={depoimento.obraRelacionada?.titulo}
-              obraSlug={depoimento.obraRelacionada?.slug}
             />
           ))}
         </div>
         <Link
           href="/depoimentos"
-          className="mx-auto text-sm font-medium text-gold-text hover:underline"
+          className="mx-auto text-sm font-semibold text-brand-orange-dark hover:text-brand-orange"
         >
           Ver todos os depoimentos →
         </Link>

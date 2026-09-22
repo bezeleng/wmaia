@@ -1,5 +1,4 @@
 // src/components/sections/DepoimentoCard.tsx
-import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { Rating } from "@/components/ui/Rating";
@@ -11,8 +10,6 @@ interface DepoimentoCardProps {
   texto: string;
   nota?: number | null;
   servicoNome?: string | null;
-  obraTitulo?: string | null;
-  obraSlug?: string | null;
 }
 
 export function DepoimentoCard({
@@ -22,8 +19,6 @@ export function DepoimentoCard({
   texto,
   nota,
   servicoNome,
-  obraTitulo,
-  obraSlug,
 }: DepoimentoCardProps) {
   const fotoUrl = foto ? urlFor(foto).width(120).height(120).url() : null;
   const iniciais = nomeCliente
@@ -34,48 +29,32 @@ export function DepoimentoCard({
     .toUpperCase();
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg border border-navy/10 p-6">
+    <div className="flex flex-col gap-4 rounded-2xl border border-border-soft bg-white p-6 shadow-sm">
       {nota && <Rating nota={nota} />}
-      <p className="text-foreground/80">&ldquo;{texto}&rdquo;</p>
+      <p className="leading-7 text-foreground/80">&ldquo;{texto}&rdquo;</p>
 
       {servicoNome && (
-        <span className="text-xs font-medium uppercase tracking-widest text-gold-text">
+        <span className="text-xs font-semibold uppercase tracking-widest text-brand-orange-dark">
           {servicoNome}
         </span>
       )}
 
-      <div className="mt-auto flex flex-col gap-4">
-        <div className="flex items-center gap-3">
-          <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy/10">
-            {fotoUrl ? (
-              <Image
-                src={fotoUrl}
-                alt={nomeCliente}
-                fill
-                className="object-cover"
-              />
-            ) : (
-              <span className="text-sm font-medium text-navy">
-                {iniciais}
-              </span>
-            )}
-          </div>
-          <div>
-            <p className="font-medium text-navy">{nomeCliente}</p>
-            {cargoEmpresa && (
-              <p className="text-sm text-foreground/60">{cargoEmpresa}</p>
-            )}
-          </div>
+      <div className="mt-auto flex items-center gap-3 pt-2">
+        <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-brand-blue/10">
+          {fotoUrl ? (
+            <Image src={fotoUrl} alt={nomeCliente} fill className="object-cover" />
+          ) : (
+            <span className="text-sm font-medium text-brand-blue">
+              {iniciais}
+            </span>
+          )}
         </div>
-
-        {obraTitulo && obraSlug && (
-          <Link
-            href={`/obras/${obraSlug}`}
-            className="text-sm font-medium text-gold-text hover:underline"
-          >
-            Conheça esta obra →
-          </Link>
-        )}
+        <div>
+          <p className="font-semibold text-brand-blue-dark">{nomeCliente}</p>
+          {cargoEmpresa && (
+            <p className="text-sm text-foreground/60">{cargoEmpresa}</p>
+          )}
+        </div>
       </div>
     </div>
   );
