@@ -52,29 +52,37 @@ export async function Header() {
           )}
         </Link>
 
-        <nav className="hidden items-center gap-3 xl:flex">
-          {navLinks.map((link) =>
-            link.external ? (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-brand-orange/25 bg-brand-orange-soft px-3 py-2 text-xs font-semibold text-brand-orange-dark transition-colors hover:border-brand-orange/50 hover:bg-brand-orange/10"
-              >
-                <MenuIcon icon={link.icon} />
-                <span>{link.label}</span>
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-brand-blue-dark transition-colors hover:text-brand-orange"
-              >
-                {link.label}
-              </Link>
-            )
-          )}
+        <nav className="hidden items-center xl:flex">
+          <div className="flex items-center gap-5">
+            {navLinks
+              .filter((link) => !link.external)
+              .map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="whitespace-nowrap text-[13px] font-medium text-brand-blue-dark transition-colors hover:text-brand-orange"
+                >
+                  {link.label}
+                </Link>
+              ))}
+          </div>
+
+          <div className="ml-5 flex items-center gap-2">
+            {navLinks
+              .filter((link) => link.external)
+              .map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 w-[190px] items-center justify-center gap-2 rounded-lg border border-brand-orange/25 bg-brand-orange-soft px-3 text-center text-[11px] font-semibold leading-tight text-brand-orange-dark transition-colors hover:border-brand-orange/50 hover:bg-brand-orange/10"
+                >
+                  <MenuIcon icon={link.icon} />
+                  <span>{link.label}</span>
+                </a>
+              ))}
+          </div>
         </nav>
 
         <MobileNav />
