@@ -77,8 +77,7 @@ export const structure: StructureResolver = (S) =>
                   .id(id)
                   .child(S.document().schemaType("ferramenta").documentId(id).title(title))
               ),
-              S.divider(),
-              S.documentTypeListItem("ferramenta").title("Todas as Ferramentas"),
+
             ])
         ),
       S.documentTypeListItem("depoimento").title("Depoimentos"),
