@@ -30,8 +30,8 @@ export async function Footer() {
 
   const redesSociais = [
     { url: config.instagramUrl, label: "Instagram", Icon: InstagramIcon },
-    { url: "facebookUrl" in config ? config.facebookUrl : null, label: "Facebook", Icon: FacebookIcon },
-    { url: "youtubeUrl" in config ? config.youtubeUrl : null, label: "YouTube", Icon: YouTubeIcon },
+    { url: data?.facebookUrl, label: "Facebook", Icon: FacebookIcon },
+    { url: data?.youtubeUrl, label: "YouTube", Icon: YouTubeIcon },
   ].filter((rede) => rede.url);
 
   return (

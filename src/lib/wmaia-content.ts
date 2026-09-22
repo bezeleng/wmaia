@@ -15,7 +15,7 @@ export const configFallback = {
   horarioSexta: "8:00 às 12:00 | 13:30 às 17:00",
   sistemaUrl: "http://www.wmaia.adm.br/loginAdmin.htm",
   regiaoAtendimento: ["Jacareí", "Vale do Paraíba"],
-} as const;
+};
 
 export const servicosFallback = [
   {

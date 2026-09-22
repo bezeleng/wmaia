@@ -2,8 +2,8 @@
 import { Container } from "@/components/ui/Container";
 
 interface DiferencialItem {
-  titulo?: string;
-  descricao?: string;
+  titulo?: string | null;
+  descricao?: string | null;
 }
 
 interface DiferenciaisProps {

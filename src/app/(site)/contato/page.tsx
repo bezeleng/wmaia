@@ -66,7 +66,7 @@ export default async function ContatoPage() {
               logradouro={config.logradouro}
               cidade={config.cidade}
               estado={config.estado}
-              cep={"cep" in config ? config.cep : undefined}
+              cep={data?.cep ?? undefined}
             />
             <div className="flex flex-col gap-4">
               <p className="text-brand-blue-dark">
@@ -86,10 +86,10 @@ export default async function ContatoPage() {
         </Container>
       </section>
 
-      {"linkAvaliacoesGoogle" in config && config.linkAvaliacoesGoogle && (
+      {data?.linkAvaliacoesGoogle && (
         <section className="py-20">
           <Container className="max-w-2xl">
-            <AvaliacoesGoogle link={config.linkAvaliacoesGoogle} />
+            <AvaliacoesGoogle link={data.linkAvaliacoesGoogle} />
           </Container>
         </section>
       )}
