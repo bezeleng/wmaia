@@ -59,7 +59,8 @@ export type ConfiguracaoSiteQueryResult = {
   linkAvaliacoesGoogle?: string | null;
   horarioSegQui?: string | null;
   horarioSexta?: string | null;
-  sistemaUrl?: string | null;
+  sistemaCondominialUrl?: string | null;
+  sistemaContabilidadeUrl?: string | null;
   instagramUrl?: string | null;
   facebookUrl?: string | null;
   youtubeUrl?: string | null;

@@ -85,7 +85,7 @@ export async function Footer() {
                 rel="noopener noreferrer"
                 className="text-white/80 hover:text-brand-orange"
               >
-                {link.label}
+                {link.label} ↗
               </a>
             ) : (
               <Link key={link.href} href={link.href} className="text-white/80 hover:text-brand-orange">

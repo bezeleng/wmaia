@@ -117,10 +117,18 @@ export const configuracaoSite = defineType({
       initialValue: "8:00 às 12:00 | 13:30 às 17:00",
     }),
     defineField({
-      name: "sistemaUrl",
-      title: "Link de Acesso ao Sistema",
+      name: "sistemaCondominialUrl",
+      title: "Área do Cliente — Condominial",
       type: "url",
-      initialValue: "http://www.wmaia.adm.br/loginAdmin.htm",
+      initialValue:
+        "https://maiacondominiosapp.com21.com.br/frontend/public/#/login",
+      validation: (Rule) => Rule.uri({ scheme: ["http", "https"] }),
+    }),
+    defineField({
+      name: "sistemaContabilidadeUrl",
+      title: "Área do Cliente — Contabilidade",
+      type: "url",
+      initialValue: "https://vip.acessorias.com/wmaia",
       validation: (Rule) => Rule.uri({ scheme: ["http", "https"] }),
     }),
     defineField({

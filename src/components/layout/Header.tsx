@@ -2,10 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { MobileNav } from "@/components/layout/MobileNav";
-import { navLinks } from "@/lib/navigation";
+import { navLinks, type NavLink } from "@/lib/navigation";
 import { sanityFetch } from "@/sanity/lib/live";
 import { configuracaoSiteQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+
+function MenuIcon({ icon }: { icon?: NavLink["icon"] }) {
+  if (!icon) return null;
+
+  if (icon === "condominio") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 shrink-0 fill-none stroke-current" strokeWidth="1.8">
+        <path d="M4 21V8.5L12 4l8 4.5V21" />
+        <path d="M8 21v-7h8v7M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 shrink-0 fill-none stroke-current" strokeWidth="1.8">
+      <path d="M4 20h16M6 20V9h12v11M9 13h2M13 13h2M9 16h2M13 16h2M8 9V6h8v3" />
+    </svg>
+  );
+}
 
 export async function Header() {
   const { data: config } = await sanityFetch({ query: configuracaoSiteQuery });
@@ -33,7 +52,7 @@ export async function Header() {
           )}
         </Link>
 
-        <nav className="hidden items-center gap-4 lg:flex">
+        <nav className="hidden items-center gap-3 xl:flex">
           {navLinks.map((link) =>
             link.external ? (
               <a
@@ -41,9 +60,10 @@ export async function Header() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg border border-brand-orange/25 bg-brand-orange-soft px-3 py-2 text-sm font-semibold text-brand-orange-dark transition-colors hover:border-brand-orange/50 hover:bg-brand-orange/10"
+                className="inline-flex items-center gap-2 rounded-lg border border-brand-orange/25 bg-brand-orange-soft px-3 py-2 text-xs font-semibold text-brand-orange-dark transition-colors hover:border-brand-orange/50 hover:bg-brand-orange/10"
               >
-                {link.label}
+                <MenuIcon icon={link.icon} />
+                <span>{link.label}</span>
               </a>
             ) : (
               <Link

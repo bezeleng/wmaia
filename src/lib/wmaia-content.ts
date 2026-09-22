@@ -13,7 +13,9 @@ export const configFallback = {
   instagramUrl: "https://www.instagram.com/wmaiaadm/",
   horarioSegQui: "8:00 às 12:00 | 13:30 às 17:30",
   horarioSexta: "8:00 às 12:00 | 13:30 às 17:00",
-  sistemaUrl: "http://www.wmaia.adm.br/loginAdmin.htm",
+  sistemaCondominialUrl:
+    "https://maiacondominiosapp.com21.com.br/frontend/public/#/login",
+  sistemaContabilidadeUrl: "https://vip.acessorias.com/wmaia",
   regiaoAtendimento: ["Jacareí", "Vale do Paraíba"],
 };
 
