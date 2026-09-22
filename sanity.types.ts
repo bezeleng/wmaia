@@ -235,7 +235,7 @@ import "@sanity/client";
 
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "configuracaoSite"][0]': ConfiguracaoSiteQueryResult;
+    '*[_type == "configuracaoSite" && _id == "configuracaoSite"][0]': ConfiguracaoSiteQueryResult;
     '*[_type == "paginaInicial"][0]': PaginaInicialQueryResult;
     '*[_type == "paginaSobre"][0]': PaginaSobreQueryResult;
     '*[_type == "paginaCondominios"][0]': PaginaCondominiosQueryResult;
