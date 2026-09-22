@@ -23,7 +23,17 @@ export const paginaInicial = defineType({
     }),
     defineField({
       name: "imagemFundo",
-      title: "Imagem principal",
+      title: "Imagem principal — Desktop",
+      description:
+        "Imagem horizontal usada em computadores e telas maiores. Recomendado: proporção 16:9, com o assunto principal mais à direita para preservar a leitura do texto.",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: "imagemFundoMobile",
+      title: "Imagem principal — Mobile",
+      description:
+        "Imagem vertical usada em celulares. Recomendado: proporção 4:5, com o assunto principal centralizado. Se ficar vazia, o site usa automaticamente a imagem de Desktop.",
       type: "image",
       options: { hotspot: true },
     }),
