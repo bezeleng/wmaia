@@ -15,7 +15,7 @@ export function AvaliacoesGoogle({ link }: AvaliacoesGoogleProps) {
       </h3>
       <p className="text-sm text-foreground/70">
         Confira as avaliações de clientes que já tiveram experiências com a
-        BEZEL.
+        WMaia.
       </p>
       <Button
         href={link}

@@ -67,7 +67,7 @@ export const obra = defineType({
     }),
     defineField({
       name: "servicosRealizados",
-      title: "Serviços Realizados pela BEZEL",
+      title: "Serviços Realizados",
       type: "array",
       of: [{ type: "string" }],
       options: {

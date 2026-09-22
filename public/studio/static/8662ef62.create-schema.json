@@ -206,7 +206,7 @@
       },
       {
         "rows": 3,
-        "initialValue": "Da análise inicial à entrega das chaves, a Bezel centraliza planejamento, orçamento, fornecedores, compras, mão de obra, cronograma e acompanhamento da execução.",
+        "initialValue": "Da análise inicial à entrega das chaves, a WMaia centraliza planejamento, orçamento, fornecedores, compras, mão de obra, cronograma e acompanhamento da execução.",
         "name": "textoGestao",
         "type": "text",
         "title": "Texto da Seção de Gestão Única"
@@ -219,7 +219,7 @@
   {
     "fields": [
       {
-        "initialValue": "Sobre a BEZEL",
+        "initialValue": "Sobre a WMaia",
         "validation": [
           {
             "level": "error",
@@ -387,23 +387,23 @@
         "type": "array"
       },
       {
-        "initialValue": "Por que escolher a Bezel?",
+        "initialValue": "Por que escolher a WMaia?",
         "name": "tituloDiferenciais",
         "type": "string",
-        "title": "Título - Por que escolher a Bezel"
+        "title": "Título - Por que escolher a WMaia"
       },
       {
         "initialValue": "Construímos com método, não com improviso.",
         "name": "subtituloDiferenciais",
         "type": "string",
-        "title": "Subtítulo - Por que escolher a Bezel"
+        "title": "Subtítulo - Por que escolher a WMaia"
       },
       {
         "rows": 4,
         "initialValue": "Cada obra é conduzida a partir de planejamento, orçamento, cronograma e acompanhamento contínuo. Centralizamos profissionais, fornecedores, compras e execução para proporcionar ao cliente mais controle e menos preocupações durante todo o processo.",
         "name": "textoDiferenciais",
         "type": "text",
-        "title": "Texto - Por que escolher a Bezel"
+        "title": "Texto - Por que escolher a WMaia"
       },
       {
         "validation": [
@@ -1327,7 +1327,7 @@
         ],
         "name": "servicosRealizados",
         "type": "array",
-        "title": "Serviços Realizados pela BEZEL"
+        "title": "Serviços Realizados pela WMaia"
       },
       {
         "options": {
@@ -1772,7 +1772,7 @@
             "type": "block"
           }
         ],
-        "name": "solucaoBezel",
+        "name": "nossaSolucao",
         "type": "array",
         "title": "Nossa Solução"
       },

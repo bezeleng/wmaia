@@ -23,7 +23,7 @@ export function MapaLocalizacao({
     <div className="aspect-video overflow-hidden rounded-lg border border-navy/10">
       <iframe
         src={`https://www.google.com/maps?q=${query}&output=embed`}
-        title={`Localização da BEZEL: ${enderecoCompleto}`}
+        title={`Localização da WMaia: ${enderecoCompleto}`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         className="h-full w-full border-0"
