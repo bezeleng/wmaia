@@ -55,7 +55,16 @@ export default async function SobrePage() {
               eyebrow="Nossa história"
               title={pagina?.titulo ?? "Quem Somos"}
             />
-            {pagina?.textoIntroducao ? (
+            {pagina?.textoApresentacao ? (
+              <div className="mt-6 space-y-4 leading-7 text-foreground/70">
+                {pagina.textoApresentacao
+                  .split(/\n\s*\n/)
+                  .filter(Boolean)
+                  .map((paragrafo) => (
+                    <p key={paragrafo}>{paragrafo}</p>
+                  ))}
+              </div>
+            ) : pagina?.textoIntroducao ? (
               <div className="mt-6">
                 <PortableTextContent value={pagina.textoIntroducao} />
               </div>
