@@ -14,10 +14,21 @@ export const paginaSobre = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "textoApresentacao",
+      title: "Texto principal — Quem Somos",
+      description:
+        "Texto exibido logo abaixo do título da página Quem Somos. Separe parágrafos com uma linha em branco.",
+      type: "text",
+      rows: 8,
+    }),
+    defineField({
       name: "textoIntroducao",
-      title: "História / Apresentação",
+      title: "História / Apresentação — formato antigo",
+      description:
+        "Campo legado. Use preferencialmente o campo Texto principal — Quem Somos acima.",
       type: "array",
       of: [{ type: "block" }],
+      hidden: true,
     }),
     defineField({
       name: "imagemDestaque",
