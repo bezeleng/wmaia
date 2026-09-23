@@ -24,7 +24,7 @@ export async function QuemSomosHome() {
     "A WMaia está em Jacareí e atua há mais de 25 anos oferecendo apoio contábil, fiscal, societário e trabalhista. Ao longo dessa trajetória, ampliou sua atuação para administração condominial, imposto de renda e consultoria administrativa e contábil.";
 
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white pb-10 pt-20 sm:pb-12 sm:pt-24">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-start">
           <div>
