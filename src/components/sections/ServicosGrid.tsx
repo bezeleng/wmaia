@@ -11,7 +11,7 @@ export async function ServicosGrid() {
   const temServicos = servicos && servicos.length > 0;
 
   return (
-    <section className="py-20 sm:py-24">
+    <section className="pb-20 pt-10 sm:pb-24 sm:pt-12">
       <Container className="flex flex-col gap-12">
         <SectionTitle
           eyebrow="O que fazemos"
