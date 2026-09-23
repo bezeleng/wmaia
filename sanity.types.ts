@@ -102,6 +102,7 @@ export type PaginaInicialQueryResult = {
 export type PaginaSobreQueryResult = {
   _id: string;
   titulo?: string | null;
+  textoApresentacao?: string | null;
   textoIntroducao?: unknown[] | null;
   imagemDestaque?: SanityImage | null;
   missao?: string | null;
