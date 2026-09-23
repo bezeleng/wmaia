@@ -39,7 +39,7 @@ export default async function FerramentasPage() {
           {temFerramentas
             ? ferramentas.map((item) => {
                 const iconeUrl = item.icone
-                  ? urlFor(item.icone).width(96).height(96).url()
+                  ? urlFor(item.icone).width(160).height(160).fit("max").url()
                   : null;
                 const imagemUrl = item.imagemCard
                   ? urlFor(item.imagemCard).width(700).height(420).fit("crop").url()
@@ -55,7 +55,13 @@ export default async function FerramentasPage() {
                         <Image src={imagemUrl} alt={item.titulo ?? ""} fill className="object-cover" />
                       </div>
                     ) : iconeUrl ? (
-                      <Image src={iconeUrl} alt="" width={48} height={48} />
+                      <Image
+                        src={iconeUrl}
+                        alt=""
+                        width={80}
+                        height={80}
+                        className="h-20 w-20 object-contain"
+                      />
                     ) : null}
                     <h2 className="mt-4 text-xl font-bold text-brand-blue-dark">
                       {item.titulo}
