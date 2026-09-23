@@ -32,7 +32,7 @@ export async function FerramentasDestaque() {
           {temFerramentas
             ? ferramentas.slice(0, 5).map((item) => {
                 const iconeUrl = item.icone
-                  ? urlFor(item.icone).width(80).height(80).url()
+                  ? urlFor(item.icone).width(160).height(160).fit("max").url()
                   : null;
                 const imagemUrl = item.imagemCard
                   ? urlFor(item.imagemCard).width(500).height(320).fit("crop").url()
@@ -50,9 +50,9 @@ export async function FerramentasDestaque() {
                       <Image
                         src={iconeUrl}
                         alt=""
-                        width={42}
-                        height={42}
-                        className="mx-auto"
+                        width={80}
+                        height={80}
+                        className="mx-auto h-20 w-20 object-contain"
                       />
                     ) : null}
                     <h3 className="mt-4 font-bold text-brand-blue-dark">
