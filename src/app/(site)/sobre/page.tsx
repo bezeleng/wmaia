@@ -82,24 +82,24 @@ export default async function SobrePage() {
                 </p>
               </div>
             )}
+
+            {imagemUrl && (
+              <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
+                <Image
+                  src={imagemUrl}
+                  alt={pagina?.titulo ?? "WMaia Contabilidade"}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
 
-          {imagemUrl ? (
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
-              <Image
-                src={imagemUrl}
-                alt={pagina?.titulo ?? "WMaia Contabilidade"}
-                fill
-                className="object-cover"
-              />
-            </div>
-          ) : (
-            <div className="flex aspect-[4/3] items-center justify-center rounded-3xl bg-brand-blue-dark p-10 text-center text-white">
-              <p className="max-w-md text-3xl font-bold leading-tight">
-                Mais de 25 anos ao lado de empresas, condomínios e pessoas.
-              </p>
-            </div>
-          )}
+          <div className="flex aspect-[4/3] items-center justify-center rounded-3xl bg-brand-blue-dark p-10 text-center text-white">
+            <p className="max-w-md text-3xl font-bold leading-tight">
+              Mais de 25 anos ao lado de empresas, condomínios e pessoas.
+            </p>
+          </div>
         </Container>
       </section>
 
